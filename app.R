@@ -238,7 +238,7 @@ server <- function(input, output) {
   rownames = FALSE, 
   colnames = c("Timestamp", "User", "Tweet", "RT", "Likes", "Mentioned"), 
   filter = 'top',
-  order = list(list(4, 'desc'), list(5, 'desc'))
+  order = list(list(4, 'desc'), list(5, 'desc')),
   options = list(lengthMenu = c(5, 10, 25, 50, 100), pageLength = 5)
   )
   
