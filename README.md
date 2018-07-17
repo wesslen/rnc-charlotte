@@ -4,7 +4,7 @@ This tool tracks over 7,000 tweets collected from July 2 to 16, 2018 relating to
 
 The tool was built from [Garrick Aden-Buie's Excellent RStudio::conf() Twitter dashboard](https://github.com/gadenbuie/rsconf_tweets) and the data was pulled using [Mike Kearney's rtweet R package](http://rtweet.info/)
 
-You can view the dashboard here: [https://unccviscenter.shinyapps.io/rnc-charlotte/](https://unccviscenter.shinyapps.io/rnc-charlotte)
+You can view the dashboard here: [https://unccviscenter.shinyapps.io/rnc-charlotte/](https://wesslen.shinyapps.io/rnc-charlotte)
 
 ## Keyword Search
 

@@ -3,6 +3,7 @@ library(rtweet)
 library(dplyr)
 library(stringr)
 library(purrr)
+library(tidyr)
 requireNamespace('httr', quietly = TRUE)
 requireNamespace('shinythemes', quietly = TRUE)
 requireNamespace('DT', quietly = TRUE)
@@ -162,11 +163,11 @@ server <- function(input, output) {
   
   tweetCount <- reactive({
 
-    counts <- clt_tweets %>%
+    counts <- tweets() %>%
       mutate(created_at = round_time(created_at, "hours"), Type = ifelse(is_retweet,"Retweet","Post")) %>%
       select(time = created_at, Type) %>% # keep only columns
       count(time, Type) %>% # count by terms
-      spread(key = Type, value = n, fill = 0) # pivot to xts format
+      tidyr::spread(key = Type, value = n, fill = 0) # pivot to xts format
     
      xts(
       x = counts[,-1],
@@ -219,8 +220,8 @@ server <- function(input, output) {
       minTime <- input$graph_date_window[[1]]
       maxTime <- input$graph_date_window[[2]]
     } else {
-      minTime <- min(t$created_at)
-      maxTime <- max(t$created_at)
+      minTime <- min(clt_tweets$created_at)
+      maxTime <- max(clt_tweets$created_at)
     }
     
     filter(tweets(), created_at > minTime & created_at < maxTime & is_retweet == FALSE)
