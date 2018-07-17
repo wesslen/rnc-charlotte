@@ -1,6 +1,9 @@
 .Rhistory
 .RData
 .Rproj.user
-*.rds
 data/*
 twitter_secrets.R
+analysis/*
+ryan_rtweets.rds
+rsconnect/*
+init.R
