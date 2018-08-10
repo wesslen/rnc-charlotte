@@ -184,7 +184,8 @@ server <- function(input, output) {
       dyOptions(colors = RColorBrewer::brewer.pal(8, "Dark2"), includeZero = TRUE) %>%
       dyAxis("x", drawGrid = FALSE) %>%
       dyOptions(useDataTimezone = TRUE) %>%
-      dyRoller(rollPeriod = 1)
+      dyRoller(rollPeriod = 1) %>%
+      dyRangeSelector(retainDateWindow=TRUE)
   })
   
   hashtags_related <- reactive({
